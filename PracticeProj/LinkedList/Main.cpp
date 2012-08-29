@@ -33,7 +33,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	PrintList(pHead);
 
 	printf("Reversing list...\n");
-	Node* pReverseHead = RecursiveReverse(pHead,NULL);
+	Node* pReverseHead = ReverseList(pHead);
 	PrintList(pReverseHead);
 
 }

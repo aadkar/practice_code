@@ -104,3 +104,20 @@ Node* RecursiveReverse(Node* pHead, Node* pPrev)
 		return temp;
 	}
 }
+
+Node* ReverseList(Node* pHead)
+{
+	Node* temp = NULL; //place holder
+	Node* pPrevNode = NULL; // a node to track previous node to the current node
+
+	while(pHead)
+	{
+		temp = pHead->pNext;
+		pHead->pNext = pPrevNode;
+		pPrevNode = pHead;
+		pHead = temp;
+	}
+
+	return pPrevNode;
+}
+

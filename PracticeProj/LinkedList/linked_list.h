@@ -71,5 +71,15 @@ void DeleteNode(Node* pHead,Node* pNode);
 Node* RecursiveReverse(Node* pHead,Node* pPrev);
 
 
+/**
+	Iterative implementation of the singly linked list reverse
+
+	@param pHead A pointer to the head of the linked list.
+
+	@return A pointer to the head of the reversed linked list
+*/
+Node* ReverseList(Node* pHead);
+
+
 
 #endif
