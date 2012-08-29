@@ -59,6 +59,17 @@ void DeleteNode(Node* pHead,int pos);
 */
 void DeleteNode(Node* pHead,Node* pNode);
 
+/**
+	A recursive implementation of reversing the linked list.
+
+	@param pHead A pointer to the head of the linked list (or the remainder of it in a recursive call)
+	@param pPrev A pointer to the node preceding this node, will be NULL for head/initial call
+
+	@return A pointer to the head of the reversed linked list.
+
+*/
+Node* RecursiveReverse(Node* pHead,Node* pPrev);
+
 
 
 #endif

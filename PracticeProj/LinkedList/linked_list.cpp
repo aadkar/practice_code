@@ -86,3 +86,21 @@ void DeleteNode(Node* pHead, Node* pNode)
 		pToDie = NULL;
 	}
 }
+
+Node* RecursiveReverse(Node* pHead, Node* pPrev)
+{
+	if(!pHead) return NULL;
+	
+	if(pHead->pNext == NULL)
+	{
+		//we have reached the end of the list. Now to backtrack from here.
+		pHead->pNext = pPrev;
+		return pHead;
+	}
+	else
+	{
+		Node *temp = RecursiveReverse(pHead->pNext,pHead);
+		pHead->pNext = pPrev;
+		return temp;
+	}
+}
