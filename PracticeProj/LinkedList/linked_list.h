@@ -29,6 +29,18 @@ void AddNode(Node* pHead,int data);
 */
 void AddNode(Node* pHead,Node* pNode);
 
+
+/**
+	Retrieves a node from a specified position
+	@param pHead A pointer to the head of the list
+	@param pos The position to retrieve the node 
+
+	@return A pointer to the returned node, NULL if none found.
+
+*/
+Node* GetNode(Node* pHead,int pos);
+
+
 /**
 	Removes a node from the list at a specified position.Request to remove the 0th 
 	node will have no effect.
@@ -79,6 +91,17 @@ Node* RecursiveReverse(Node* pHead,Node* pPrev);
 	@return A pointer to the head of the reversed linked list
 */
 Node* ReverseList(Node* pHead);
+
+/**
+	Swap two nodes withing the linked list.
+
+	@param pHead A pointer to the linked list head
+	@param pNodeA One node to swap.
+	@param pNodeB The other node to swap with
+
+	@return Pointer to the head of the new linked list
+*/
+Node* SwapNodes(Node* pHead, Node* pNodeA,Node* pNodeB);
 
 
 

@@ -25,6 +25,20 @@ void AddNode(Node* pHead,Node* pNode)
 	pHead->pNext = pNode;
 }
 
+Node* GetNode(Node* pHead, int pos)
+{
+	int idx = 0;
+
+	while(pHead && idx != pos)
+	{
+		pHead = pHead->pNext;
+		++idx;
+	}
+
+	return pHead;
+}
+
+
 Node* RemoveNode(Node* pHead,int pos)
 {
 	if(!pHead || !pos) return NULL;
@@ -121,3 +135,65 @@ Node* ReverseList(Node* pHead)
 	return pPrevNode;
 }
 
+Node* SwapNodes(Node* pHead,Node* pNodeA,Node* pNodeB)
+{
+	if(!pHead || !pNodeA || !pNodeB) return pHead;
+
+	if(pNodeA == pNodeB) return pHead;
+
+	Node* pActualHead = pHead;
+	Node* pNodeAPrev = NULL;
+	Node* pNodeBPrev = NULL;
+	
+	bool bNodeAFound = false;
+	bool bNodeBFound = false;
+	
+	Node* pNodePrev = NULL;
+
+	while(pHead && (!bNodeAFound || !bNodeBFound))
+	{
+		if(pHead == pNodeA)
+		{
+			bNodeAFound = true;		
+			pNodeAPrev = pNodePrev;
+		}
+		else if(pHead == pNodeB)
+		{
+			bNodeBFound = true;
+			pNodeBPrev = pNodePrev;
+		}
+		
+		pNodePrev = pHead;
+		pHead = pHead->pNext;
+
+	}
+
+	if(!bNodeAFound || !bNodeBFound)
+	{
+		return NULL;
+	}
+
+	if(pNodeAPrev) 
+	{
+		pNodeAPrev->pNext = pNodeB;
+	}
+	else
+	{
+		pActualHead = pNodeB;
+	}
+	
+	if(pNodeBPrev)
+	{
+		pNodeBPrev->pNext = pNodeA;
+	}
+	else
+	{
+		pActualHead = pNodeA;
+	}
+
+	Node* temp = pNodeA->pNext;
+	pNodeA->pNext = pNodeB->pNext;
+	pNodeB->pNext = temp;
+
+	return pActualHead;
+}
